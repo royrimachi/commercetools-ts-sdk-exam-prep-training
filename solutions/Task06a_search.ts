@@ -8,7 +8,7 @@ const search = async () => {
 
     const categoryId = (await pocApiRoot
         .categories()
-        .withKey({ key: "plant-seeds" })
+        .withKey({ key: "flowers-category" })
         .get()
         .execute()).body.id;
 
@@ -30,7 +30,7 @@ const search = async () => {
 
         // Get all Facets for Enum size, Number weight_in_kg and productType 
         "facet": [
-            "variants.attributes.size as Size",
+            "variants.attributes.packing as Packing",
             "variants.attributes.weight_in_kg:range (0 to 1), (1 to 5), (5 to 20) as Weight",
         ],
 

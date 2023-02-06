@@ -78,7 +78,7 @@ export const addCustomLineItemToCart = (cartId: string, name: string, centAmount
                     version: cart.body.version,
                     actions: [{
                         action: "addCustomLineItem",
-                        name: {"EN": name},
+                        name: {"en-US": name},
                         money: {
                             centAmount,
                             currencyCode: "EUR"

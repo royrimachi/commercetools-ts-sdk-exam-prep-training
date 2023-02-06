@@ -51,8 +51,9 @@ const getProductDraftImportArray = async (products: Product[]): Promise<Array<Pr
         [key: string]: any
     }
 
-    const extractPriceData = (price: { country: any; value: { currencyCode: any; centAmount: any; type: any; }; }) => {
+    const extractPriceData = (price: { key: any, country: any; value: { currencyCode: any; centAmount: any; type: any; }; }) => {
         return {
+            key: price.key,
             country: price.country,
             value: {
                 currencyCode: price.value.currencyCode,
@@ -77,14 +78,7 @@ const getProductDraftImportArray = async (products: Product[]): Promise<Array<Pr
             },
             masterVariant: {
                 sku: product.masterData.staged.masterVariant.sku,
-                prices: product.masterData.staged.masterVariant.prices.map(extractPriceData) => ({
-                    country: price.country,
-                    value: {
-                        currencyCode: price.value.currencyCode,
-                        centAmount: price.value.centAmount,
-                        type: price.value.type
-                    }
-                })),
+                prices: product.masterData.staged.masterVariant.prices.map(extractPriceData),
                 key: product.masterData.staged.masterVariant.key,
                 attributes: product.masterData.staged.masterVariant.attributes
             },

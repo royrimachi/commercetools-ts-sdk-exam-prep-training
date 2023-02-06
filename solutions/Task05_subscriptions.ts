@@ -27,7 +27,7 @@ const subscriptionDraft: SubscriptionDraft = {
 //     destination: {
 //         type: "SQS",
 //         queueUrl: "https://sqs.eu-central-1.amazonaws.com/349839637243/Training-Demo",
-//         accessKey: clientId,
+//         accessKey: clientId, 
 //         accessSecret: clientSecret,
 //         region: "eu-central-1"
 //     },

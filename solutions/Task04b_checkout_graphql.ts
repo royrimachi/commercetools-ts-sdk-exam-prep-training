@@ -6,11 +6,11 @@ import { createPayment } from "./handson/payment";
 import { log } from "../utils/logger";
 
 const customerKey = "tt-customer";
-const cartId = "a7cf6922-f8bf-4567-be7b-9321bea28105";
+const cartId = "2f8397ef-966a-4935-bd97-b2f7ed939303";
 const customObjectContainer = "Schemas";
 const customObjectKey = "bonusPointsCalculationSchema";
 const customerBonusFieldName = "bonuspoints-custom-field";
-const taxCategoryKey = "test-tax-category";
+const taxCategoryKey = "standard-tax-category";
 const query = `
     query ($cartId: String!, $customerKey: String!, $customObjectContainer: String!) {
         cart (id: $cartId) { totalPrice { currencyCode centAmount } }

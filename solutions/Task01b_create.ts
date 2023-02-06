@@ -14,7 +14,7 @@ const customerGroupDraft: CustomerGroupDraft = {
     key: "loyalbuyers-customer-group",
     groupName: "loyalbuyers"
 };
-// createCustomerGroup(customerGroupDraft).then().then(log).catch(log);
+createCustomerGroup(customerGroupDraft).then().then(log).catch(log);
 
 const customerDraft: CustomerDraft = {
     firstName: "Test",
@@ -32,15 +32,15 @@ const customerDraft: CustomerDraft = {
     defaultShippingAddress: 0
 };
 
-// createCustomer(customerDraft).then().then(log).catch(log);
+createCustomer(customerDraft).then().then(log).catch(log);
 
 // getCustomerByKey(customerDraft.key!).then(log).catch(log);
 
-getCustomerByKey(customerDraft.key!)
-    .then(createCustomerToken)
-    .then(confirmCustomerEmail)
-    .then(log)
-    .catch(log);
+// getCustomerByKey(customerDraft.key!)
+//     .then(createCustomerToken)
+//     .then(confirmCustomerEmail)
+//     .then(log)
+//     .catch(log);
 
 // assignCustomerToCustomerGroup(customerDraft.key!, customerGroupDraft.key!)
 //     .then(log)

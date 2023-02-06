@@ -10,18 +10,17 @@ import { log } from "../utils/logger";
 const containerKey = "tt-ImportContainer";
 
 // TODO Step 2: Create an import container
-createImportContainer(containerKey).then(log).catch(log);
-
+// createImportContainer(containerKey).then(log).catch(log);
 
 // check import summary for your container
-// checkImportSummary(containerKey).then(log).catch(log);
+checkImportSummary(containerKey).then(log).catch(log);
 
 // check import operations for your container
-// checkImportOperationsStatus(containerKey).then(operations =>
-//     operations.body.results.forEach(operation =>
-//         log(operation.id + " : " + operation.state)
-//     )
-// );
+checkImportOperationsStatus(containerKey).then(operations =>
+    operations.body.results.forEach(operation =>
+        log(operation.id + " : " + operation.state)
+    )
+);
 
 // Check the status of import operations by their Ids
 // checkImportOperationStatusById("b17bde76-9536-4115-b4d7-d9c1a54194a0").then(log).catch(log);

@@ -10,7 +10,7 @@ const prepareCart = async () => {
 
     let customerCart = await checkout.createCart(customerKey)
     .then(cart => checkout.addLineItemsToCart(
-        cart.body.id, ["red-rose-flowers-product-variant-box"]
+        cart.body.id, ["rose-flowers-box"]
     ))
     .then(cart => checkout.setShippingMethod(cart.body.id));
 

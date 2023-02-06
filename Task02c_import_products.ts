@@ -38,4 +38,4 @@ const containerKey = "tt-ImportContainer";
 // -e TARGET_PROJECT_KEY=xxx \
 // -e TARGET_CLIENT_ID=xxx \
 // -e TARGET_CLIENT_SECRET=xxx \
-// commercetools/commercetools-project-sync:5.2.2 -s all
+// commercetools/commercetools-project-sync:5.3.0 -s all

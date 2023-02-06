@@ -7,7 +7,7 @@ import { log } from "./utils/logger";
 
 // TODO Step 1: Update customer key, cartId and other consts
 const customerKey = "tt-customer";
-const cartId = "";
+const cartId = "2f8397ef-966a-4935-bd97-b2f7ed939333";
 const customObjectContainer = "Schemas";
 const customObjectKey = "bonusPointsCalculationSchema";
 const customerBonusFieldName = "bonuspoints-custom-field";

@@ -25,6 +25,13 @@ export const readConfig = (prefix: string) => {
     };
 }
 
+export const readAwsConfig = (prefix: string) => {
+    return {
+        accessKey: process.env[prefix + "_ACCESS_KEY"] || "",
+        accessSecret: process.env[prefix + "_ACCESS_SECRET"] || ""
+    };
+}
+
 export type Config = {
     clientId: string;
     clientSecret: string;
@@ -34,4 +41,9 @@ export type Config = {
     username?: string;
     password?: string;
     storeKey?: string;
+}
+
+export type AwsConfig = {
+    accessKey?: string;
+    accessSecret?: string;
 }
