@@ -1,8 +1,8 @@
 import {
     importProducts, 
     importPrices
-} from "./handson/importService";
-import { getSourceProduct, getSourceProducts } from "./handson/productService";
+} from "./lib/importService";
+import { getSourceProduct, getSourceProducts } from "./lib/productService";
 import { log } from "../utils/logger";
 
 // TODO Step 1: Provide your container key

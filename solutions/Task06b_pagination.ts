@@ -1,5 +1,5 @@
 // import { PagedQueryResponse, Product, ProductPagedQueryResponse } from "@commercetools/platform-sdk";
-import { getAllProducts, simulatePagination } from "./handson/search";
+import { getAllProducts, simulatePagination } from "./lib/search";
 import { log } from "../utils/logger";
 
 // UseCases

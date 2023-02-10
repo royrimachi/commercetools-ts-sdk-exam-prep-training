@@ -1,7 +1,7 @@
 import { SubscriptionDraft } from "@commercetools/platform-sdk";
-import { pocApiRoot } from "./handson/client";
-import { log } from "./utils/logger";
-import { Prefix, readAwsConfig, readConfig } from "./utils/config";
+import { pocApiRoot } from "./lib/client";
+import { log } from "../utils/logger";
+import { Prefix, readAwsConfig, readConfig } from "../utils/config";
 
 // // TODO: Create a Topic/Queue in your cloud account
 // // TODO: Create a subscription draft for customer changes

@@ -1,6 +1,6 @@
 import { CustomObjectDraft } from "@commercetools/platform-sdk";
-import { log } from "./utils/logger";
-import { createCustomObject, getCustomObjectByContainerAndKey } from "./handson/customizatonService";
+import { log } from "../utils/logger";
+import { createCustomObject, getCustomObjectByContainerAndKey } from "./lib/customizatonService";
 
 // TODO Step 1: Design a structure for storing the following information
 //  Cart value  - Bonus Points earned

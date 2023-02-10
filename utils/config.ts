@@ -3,6 +3,7 @@ import { config } from "dotenv";
 config();
 
 export const enum Prefix {
+    PREP = "CTP",
     POC = "POC",
     CONCEPT = "CONC_RO",
     IMPORT = "POC",

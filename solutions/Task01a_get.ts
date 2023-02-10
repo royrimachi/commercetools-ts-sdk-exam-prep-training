@@ -1,5 +1,5 @@
 import { log } from "../utils/logger";
-import { pocApiRoot } from "./handson/client";
+import { pocApiRoot } from "./lib/client";
 
 // Learning Goals
 // Api Clients

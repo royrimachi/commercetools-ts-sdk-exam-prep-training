@@ -1,9 +1,9 @@
-import { pocApiRoot } from "./handson/client";
-import { getCustomerByKey, setCustomFieldValue } from "./handson/customer";
-import { getCustomObjectByContainerAndKey } from "./handson/customizatonService";
-import * as checkout from "./handson/order";
-import { createPayment } from "./handson/payment";
-import { log } from "./utils/logger";
+import { pocApiRoot } from "./lib/client";
+import { getCustomObjectByContainerAndKey } from "./lib/customizatonService";
+import { getCustomerByKey, setCustomFieldValue } from "./lib/customer";
+import * as checkout from "./lib/order";
+import { createPayment } from "./lib/payment";
+import { log } from "../utils/logger";
 
 // TODO Step 1: Update customer key, cartId and other consts
 const customerKey = "tt-customer";

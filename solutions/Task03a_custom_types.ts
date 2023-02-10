@@ -1,6 +1,6 @@
 import { TypeDraft } from "@commercetools/platform-sdk";
 import { log } from "../utils/logger";
-import {createCustomType, getCustomTypes} from "./handson/customizatonService";
+import {createCustomType, getCustomTypes} from "./lib/customizatonService";
 
 // TODO Step 1: Check if custom type exists for storing customers' bonus points
 getCustomTypes()

@@ -7,8 +7,8 @@ import {
     createCustomerToken,
     confirmCustomerEmail,
     assignCustomerToCustomerGroup,
-} from "./handson/customer";
-import { log } from "./utils/logger";
+} from "./lib/customer";
+import { log } from "../utils/logger";
 
 // // TODO Step 1: Create a customer group in handson/CustomerService.ts
 const customerGroupDraft: CustomerGroupDraft = {

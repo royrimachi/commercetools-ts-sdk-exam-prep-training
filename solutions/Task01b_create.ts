@@ -7,7 +7,7 @@ import {
     createCustomerToken,
     confirmCustomerEmail,
     assignCustomerToCustomerGroup,
-} from "./handson/customer";
+} from "./lib/customer";
 import { log } from "../utils/logger";
 
 const customerGroupDraft: CustomerGroupDraft = {

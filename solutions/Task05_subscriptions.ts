@@ -1,5 +1,5 @@
 import { SubscriptionDraft } from "@commercetools/platform-sdk";
-import { pocApiRoot } from "./handson/client";
+import { pocApiRoot } from "./lib/client";
 import { log } from "../utils/logger";
 import { Prefix, readConfig } from "../utils/config";
 

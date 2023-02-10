@@ -3,8 +3,8 @@ import {
     checkImportOperationsStatus,
     checkImportSummary,
     createImportContainer
-} from "./handson/importService";
-import { log } from "./utils/logger";
+} from "./lib/importService";
+import { log } from "../utils/logger";
 
 // TODO Step 1: Provide your container key
 const containerKey = "tt-ImportContainer";

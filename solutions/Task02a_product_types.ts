@@ -1,4 +1,4 @@
-import { getSourceProductType, getSourceProductTypes, transferProductType } from "./handson/productTypeService";
+import { getSourceProductType, getSourceProductTypes, transferProductType } from "./lib/productTypeService";
 import {log} from "../utils/logger";
 
 // TODO Step 1: Provide credentials in .env for Concept API client

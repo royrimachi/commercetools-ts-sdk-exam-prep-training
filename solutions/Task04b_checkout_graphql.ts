@@ -1,8 +1,8 @@
-import { pocApiRoot } from "./handson/client";
-import { getCustomerByKey, setCustomFieldValue } from "./handson/customer";
-import { getCustomObjectByContainerAndKey } from "./handson/customizatonService";
-import * as checkout from "./handson/order";
-import { createPayment } from "./handson/payment";
+import { pocApiRoot } from "./lib/client";
+import { getCustomerByKey, setCustomFieldValue } from "./lib/customer";
+import { getCustomObjectByContainerAndKey } from "./lib/customizatonService";
+import * as checkout from "./lib/order";
+import { createPayment } from "./lib/payment";
 import { log } from "../utils/logger";
 
 const customerKey = "tt-customer";

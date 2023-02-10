@@ -1,6 +1,6 @@
-import * as checkout from "./handson/order";
-import { createPayment } from "./handson/payment";
-import { log } from "./utils/logger";
+import * as checkout from "./lib/order";
+import { createPayment } from "./lib/payment";
+import { log } from "../utils/logger";
 
 // TODO Step 1: Update customer key
 const customerKey = "tt-customer";

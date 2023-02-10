@@ -1,6 +1,6 @@
 import { FacetRange, FacetTerm, ProductProjection } from "@commercetools/platform-sdk";
-import { pocApiRoot } from "./handson/client";
-import { simulateSearch } from "./handson/search";
+import { pocApiRoot } from "./lib/client";
+import { simulateSearch } from "./lib/search";
 import { log } from "../utils/logger";
 
 

@@ -1,5 +1,5 @@
-import * as checkout from "./handson/order";
-import { createPayment } from "./handson/payment";
+import * as checkout from "./lib/order";
+import { createPayment } from "./lib/payment";
 import { log } from "../utils/logger";
 
 const customerKey = "tt-customer";
