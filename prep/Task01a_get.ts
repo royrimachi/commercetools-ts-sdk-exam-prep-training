@@ -1,5 +1,5 @@
 import { log } from "../utils/logger";
-import { apiRoot } from "./handson/client";
+import { apiRoot } from "./lib/client";
 
 // Learning Goals
 // Api Clients

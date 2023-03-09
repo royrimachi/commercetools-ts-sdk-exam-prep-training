@@ -1,7 +1,7 @@
 import { CustomerDraft, CustomerGroupDraft } from "@commercetools/platform-sdk";
 import {
     createCustomer,
-} from "./handson/customer";
+} from "./lib/customer";
 import { log } from "../utils/logger";
 
 // TODO Step 1: Create a new customer.
