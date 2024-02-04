@@ -1,5 +1,9 @@
-import { getSourceProductType, getSourceProductTypes, transferProductType } from "./lib/productTypeService";
-import {log} from "../utils/logger";
+import {
+  getSourceProductType,
+  getSourceProductTypes,
+  transferProductType,
+} from "./lib/productTypeService";
+import { log } from "../utils/logger";
 
 // TODO Step 1: Provide credentials in .env for concept API client
 // TODO Step 2: Provide prefix in utils/config for concept API client
@@ -8,7 +12,6 @@ import {log} from "../utils/logger";
 // getSourceProductTypes().then(log).catch(log);
 
 // TODO Step 4: Use productTypeService to transfer product types from Concept to POC project
-
 
 // Transfer a single product type
 // getSourceProductType("product-key")

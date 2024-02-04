@@ -38,63 +38,77 @@ const query = `
 // TODO Step 2: Fetch customer bonus points, cart value, bonus points calculation schema
 // Single GraphQL query to fetch all the information you need to place an order
 
-
-
 const placeOrder = async () => {
-    var graphQLResponse =  await pocApiRoot.graphql() 
-        .post({
-            body: {
-            query,
-            variables: {cartId, customerKey, customObjectContainer}
-            }
-        })
-        .execute();
+  var graphQLResponse = await pocApiRoot
+    .graphql()
+    .post({
+      body: {
+        query,
+        variables: { cartId, customerKey, customObjectContainer },
+      },
+    })
+    .execute();
 
-    let customObject = graphQLResponse.body.data.customObjects.results[0].value;
-    let cartTotal = graphQLResponse.body.data.cart.totalPrice.centAmount;
-    let oldPoints = graphQLResponse.body.data.customer.custom.customFieldsRaw[0].value;
-    
-    let earnedPoints = await calculateBonusPoints(cartTotal, customObject);
-    
-    let order = await checkout.getCartById(cartId)
-    .then(cart => checkout.addCustomLineItemToCart(
+  let customObject = graphQLResponse.body.data.customObjects.results[0].value;
+  let cartTotal = graphQLResponse.body.data.cart.totalPrice.centAmount;
+  let oldPoints =
+    graphQLResponse.body.data.customer.custom.customFieldsRaw[0].value;
+
+  let earnedPoints = await calculateBonusPoints(cartTotal, customObject);
+
+  let order = await checkout
+    .getCartById(cartId)
+    .then((cart) =>
+      checkout.addCustomLineItemToCart(
         cartId,
-        "Bonus points earned " + earnedPoints, 
+        "Bonus points earned " + earnedPoints,
         0,
         "bonus-points-custom-line-item",
-        taxCategoryKey
-        )
+        taxCategoryKey,
+      ),
     )
     .then(checkout.createOrderFromCart);
 
-    let customer = await getCustomerByKey(customerKey)
-        .then(customer => setCustomFieldValue(customer,customerBonusFieldName, oldPoints + earnedPoints));
+  let customer = await getCustomerByKey(customerKey).then((customer) =>
+    setCustomFieldValue(
+      customer,
+      customerBonusFieldName,
+      oldPoints + earnedPoints,
+    ),
+  );
 
-    if (order) {
-        return {
-            status: 201,
-            message: "Order created: " + order.body.id + " and customer earned " + earnedPoints +" points."
-        };
-    }
+  if (order) {
+    return {
+      status: 201,
+      message:
+        "Order created: " +
+        order.body.id +
+        " and customer earned " +
+        earnedPoints +
+        " points.",
+    };
+  }
 };
 
 placeOrder().then(log).catch(log);
 
-
 const calculateBonusPoints = async (
-    cartTotal: number,
-    customObject: any
+  cartTotal: number,
+  customObject: any,
 ): Promise<number> => {
-    let earnedPoints = 0;
-    Object.entries(customObject).forEach(block =>{
-        let { minCartValue, maxCartValue, factor, addon } = block[1] as cartValues;
-        if(cartTotal >= minCartValue && cartTotal <= maxCartValue){
-            earnedPoints = (cartTotal/100) * factor + addon;
-        }
-    })
-    return earnedPoints;
-}
+  let earnedPoints = 0;
+  Object.entries(customObject).forEach((block) => {
+    let { minCartValue, maxCartValue, factor, addon } = block[1] as cartValues;
+    if (cartTotal >= minCartValue && cartTotal <= maxCartValue) {
+      earnedPoints = (cartTotal / 100) * factor + addon;
+    }
+  });
+  return earnedPoints;
+};
 
 export interface cartValues {
-    minCartValue: number; maxCartValue: number; factor: number; addon: number;
+  minCartValue: number;
+  maxCartValue: number;
+  factor: number;
+  addon: number;
 }

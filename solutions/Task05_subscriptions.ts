@@ -9,17 +9,18 @@ import { Prefix, readConfig } from "../utils/config";
 // changes
 
 const subscriptionDraft: SubscriptionDraft = {
-    key: "subscriptionSample",
-    destination: {
-        type: "GoogleCloudPubSub",
-        projectId: "ct-support",
-        topic: "training-subscription-sample"
+  key: "subscriptionSample",
+  destination: {
+    type: "GoogleCloudPubSub",
+    projectId: "ct-support",
+    topic: "training-subscription-sample",
+  },
+  changes: [
+    {
+      resourceTypeId: "customer",
     },
-    changes: [{
-        resourceTypeId: "customer"
-    }]
+  ],
 };
-
 
 // const { clientId, clientSecret } = readConfig(Prefix.AWS);
 // const subscriptionDraft: SubscriptionDraft = {
@@ -27,7 +28,7 @@ const subscriptionDraft: SubscriptionDraft = {
 //     destination: {
 //         type: "SQS",
 //         queueUrl: "https://sqs.eu-central-1.amazonaws.com/349839637243/Training-Demo",
-//         accessKey: clientId, 
+//         accessKey: clientId,
 //         accessSecret: clientSecret,
 //         region: "eu-central-1"
 //     },
@@ -36,10 +37,9 @@ const subscriptionDraft: SubscriptionDraft = {
 //     }]
 // };
 
-
 pocApiRoot
-    .subscriptions()
-    .post({ body: subscriptionDraft })
-    .execute()
-    .then(log)
-    .catch(log);
+  .subscriptions()
+  .post({ body: subscriptionDraft })
+  .execute()
+  .then(log)
+  .catch(log);

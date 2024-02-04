@@ -1,7 +1,5 @@
 import { CustomerDraft, CustomerGroupDraft } from "@commercetools/platform-sdk";
-import {
-    createCustomer,
-} from "./lib/customer";
+import { createCustomer } from "./lib/customer";
 import { log } from "../utils/logger";
 
 // TODO Step 1: Create a new customer.
@@ -12,21 +10,20 @@ import { log } from "../utils/logger";
 // TODO Step 6: Create a few product categories.
 // TODO Step 7: Query the categories by key.
 
-
 const customerDraft: CustomerDraft = {
-    firstName: "Test",
-    lastName: "Tester",
-    email: "test@test.com",
-    password: "password",
-    key: "tt-customer",
-    addresses: [
-        {
-            country: "DE",
-            key: "tt-customer-address"
-        }
-    ],
-    defaultBillingAddress: 0,
-    defaultShippingAddress: 0
+  firstName: "Test",
+  lastName: "Tester",
+  email: "test@test.com",
+  password: "password",
+  key: "tt-customer",
+  addresses: [
+    {
+      country: "DE",
+      key: "tt-customer-address",
+    },
+  ],
+  defaultBillingAddress: 0,
+  defaultShippingAddress: 0,
 };
 
 createCustomer(customerDraft).then().then(log).catch(log);

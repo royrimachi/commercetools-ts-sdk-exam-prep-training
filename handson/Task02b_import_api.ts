@@ -1,8 +1,8 @@
 import {
-    checkImportOperationStatusById,
-    checkImportOperationsStatus,
-    checkImportSummary,
-    createImportContainer
+  checkImportOperationStatusById,
+  checkImportOperationsStatus,
+  checkImportSummary,
+  createImportContainer,
 } from "./lib/importService";
 import { log } from "../utils/logger";
 
@@ -11,7 +11,6 @@ const containerKey = "tt-ImportContainer";
 
 // TODO Step 2: Create an import container
 createImportContainer(containerKey).then(log).catch(log);
-
 
 // check import summary for your container
 // checkImportSummary(containerKey).then(log).catch(log);
@@ -26,4 +25,3 @@ createImportContainer(containerKey).then(log).catch(log);
 // Check the status of import operations by their Ids
 // checkImportOperationStatusById("b17bde76-9536-4115-b4d7-d9c1a54194a0").then(log).catch(log);
 // checkImportOperationStatusById("b0a5adb1-2b1d-40fc-94a4-64b240c11020").then(log).catch(log);
-

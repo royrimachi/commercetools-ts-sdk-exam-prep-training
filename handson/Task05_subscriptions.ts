@@ -10,17 +10,18 @@ import { Prefix, readAwsConfig, readConfig } from "../utils/config";
 // Changes/Messages - Array of MessageSubscription/ChangeSubscription - Optional - The messages to be subscribed to.
 
 const subscriptionDraft: SubscriptionDraft = {
-    key: "subscriptionSample",
-    destination: {
-        type: "GoogleCloudPubSub",
-        projectId: "ct-support",
-        topic: "training-subscription-sample"
+  key: "subscriptionSample",
+  destination: {
+    type: "GoogleCloudPubSub",
+    projectId: "ct-support",
+    topic: "training-subscription-sample",
+  },
+  changes: [
+    {
+      resourceTypeId: "customer",
     },
-    changes: [{
-        resourceTypeId: "customer"
-    }]
+  ],
 };
-
 
 // const { accessKey, accessSecret } = readAwsConfig(Prefix.AWS);
 // const subscriptionDraft: SubscriptionDraft = {
@@ -39,12 +40,12 @@ const subscriptionDraft: SubscriptionDraft = {
 
 // // TODO: Create the subscription
 pocApiRoot
-    .subscriptions()
-    .post({ body: subscriptionDraft })
-    .execute()
-    .then(log)
-    .catch(log);
+  .subscriptions()
+  .post({ body: subscriptionDraft })
+  .execute()
+  .then(log)
+  .catch(log);
 
-// TODO: Create a serverless function that subscribes to your Queue/Topic 
+// TODO: Create a serverless function that subscribes to your Queue/Topic
 // and sends an email to the customer
 // sample code can be found in /extensions folder in this repo

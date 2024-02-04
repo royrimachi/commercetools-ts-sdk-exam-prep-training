@@ -4,11 +4,11 @@
   "description": "Used in commercetools JavaScript Developer Exam Preparation Training",
   "main": "index.js",
   "scripts": {
-    
+    "format": "prettier --write ./**/*.{js,ts}",
+    "5": "ts-node handson/Task05_subscriptions.ts",
     "prep-1a": "ts-node prep/Task01a_get.ts",
     "prep-1b": "ts-node prep/Task01b_create.ts",
     "prep-4a": "ts-node prep/Task04a_create_cart.ts",
-
     "1a": "ts-node handson/Task01a_get.ts",
     "1b": "ts-node handson/Task01b_create.ts",
     "2a": "ts-node handson/Task02a_product_types.ts",
@@ -18,7 +18,6 @@
     "3b": "ts-node handson/Task03b_custom_objects.ts",
     "4a": "ts-node handson/Task04a_create_cart.ts",
     "4b": "ts-node handson/Task04b_checkout_graphql.ts",
-    "5": "ts-node handson/Task05_subscriptions.ts",
     "6a": "ts-node handson/Task06a_search.ts",
     "6b": "ts-node handson/Task06b_pagination.ts"
   },
@@ -43,6 +42,7 @@
   "devDependencies": {
     "@types/chalk-animation": "^1.6.1",
     "@types/node-fetch": "^2.6.1",
+    "prettier": "^3.2.5",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.4"
   }
