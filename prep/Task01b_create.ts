@@ -1,6 +1,6 @@
 import { CustomerDraft, CustomerUpdate } from "@commercetools/platform-sdk";
 import { createCustomer, updateCustomer } from "./lib/customer";
-import { addressDraft, customerDraft } from "./drafts/customer";
+import { addressDraft } from "./drafts/customer";
 import { createCustomerGroup } from "./lib/customerGroup";
 import { customerGroupDraft } from "./drafts/customerGroup";
 
@@ -18,6 +18,21 @@ function customerAddBillingAddress(
   return {
     version,
     actions: [{ action: "setDefaultBillingAddress", addressId }],
+  };
+}
+
+function assignCustomerToGroup(
+  version: number,
+  customerGroupId: string
+): CustomerUpdate {
+  return {
+    actions: [
+      {
+        action: "setCustomerGroup",
+        customerGroup: { id: customerGroupId, typeId: "customer-group" },
+      },
+    ],
+    version,
   };
 }
 
@@ -42,12 +57,27 @@ async function step3() {
 }
 
 // TODO Step 4: Assign the customer to the customer group.
+async function step4(
+  customerId: string,
+  customerGroupId: string,
+  version: number
+) {
+  return updateCustomer(
+    customerId,
+    assignCustomerToGroup(version, customerGroupId)
+  );
+}
+
 // TODO Step 5: Create a tax category.
 // TODO Step 6: Create a few product categories.
 // TODO Step 7: Query the categories by key.
 
 async function CRUD_operations() {
-  await step3();
+  await step4(
+    "e90666f8-7b19-4193-ad40-ec4d7e0d583d",
+    "25073440-1bdb-4313-9aba-83f0f056b6b4",
+    11
+  );
 }
 
 CRUD_operations();
