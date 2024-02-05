@@ -3,6 +3,8 @@ import { createCustomer, updateCustomer } from "./lib/customer";
 import { addressDraft } from "./drafts/customer";
 import { createCustomerGroup } from "./lib/customerGroup";
 import { customerGroupDraft } from "./drafts/customerGroup";
+import { createTaxCategory } from "./lib/taxCategory";
+import { taxCategoryDraft } from "./drafts/taxCategory";
 
 function customerAddAddress(version: number): CustomerUpdate {
   return {
@@ -69,15 +71,15 @@ async function step4(
 }
 
 // TODO Step 5: Create a tax category.
+async function step5() {
+  return createTaxCategory(taxCategoryDraft);
+}
+
 // TODO Step 6: Create a few product categories.
 // TODO Step 7: Query the categories by key.
 
 async function CRUD_operations() {
-  await step4(
-    "e90666f8-7b19-4193-ad40-ec4d7e0d583d",
-    "25073440-1bdb-4313-9aba-83f0f056b6b4",
-    11
-  );
+  await step5();
 }
 
 CRUD_operations();
