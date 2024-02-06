@@ -5,8 +5,9 @@ import { createCustomerGroup } from "./lib/customerGroup";
 import { customerGroupDraft } from "./drafts/customerGroup";
 import { createTaxCategory } from "./lib/taxCategory";
 import { taxCategoryDraft } from "./drafts/taxCategory";
-import { createCategory } from "./lib/category";
+import { createCategory, getCategoryByKey } from "./lib/category";
 import { categoryDraft } from "./drafts/category";
+import { log } from "../utils/logger";
 
 function customerAddAddress(version: number): CustomerUpdate {
   return {
@@ -83,9 +84,14 @@ async function step6() {
 }
 
 // TODO Step 7: Query the categories by key.
+async function step7(categoryKey: string) {
+  const category = await getCategoryByKey(categoryKey);
+  log(category);
+  return category;
+}
 
 async function CRUD_operations() {
-  await step6();
+  await step7("fruits");
 }
 
 CRUD_operations();
