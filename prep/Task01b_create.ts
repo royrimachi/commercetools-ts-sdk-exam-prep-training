@@ -18,7 +18,7 @@ function customerAddAddress(version: number): CustomerUpdate {
 
 function customerAddBillingAddress(
   version: number,
-  addressId: string
+  addressId: string,
 ): CustomerUpdate {
   return {
     version,
@@ -28,7 +28,7 @@ function customerAddBillingAddress(
 
 function assignCustomerToGroup(
   version: number,
-  customerGroupId: string
+  customerGroupId: string,
 ): CustomerUpdate {
   return {
     actions: [
@@ -51,7 +51,7 @@ async function step2(addressId: string, customerId: string, version: number) {
   if (addressId !== undefined) {
     return updateCustomer(
       customerId,
-      customerAddBillingAddress(version, addressId)
+      customerAddBillingAddress(version, addressId),
     );
   }
 }
@@ -65,11 +65,11 @@ async function step3() {
 async function step4(
   customerId: string,
   customerGroupId: string,
-  version: number
+  version: number,
 ) {
   return updateCustomer(
     customerId,
-    assignCustomerToGroup(version, customerGroupId)
+    assignCustomerToGroup(version, customerGroupId),
   );
 }
 

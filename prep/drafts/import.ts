@@ -16,7 +16,8 @@ export const IMPORTED_PRICES: PriceImport[] = [
     value: {
       type: "centPrecision",
       currencyCode: "EUR",
-      centAmount: 10.5,
+      centAmount: 1050,
+      fractionDigits: 2,
     },
   },
 ];

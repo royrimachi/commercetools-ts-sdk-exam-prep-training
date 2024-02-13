@@ -23,3 +23,21 @@ export function importPrices(
     .post({ body })
     .execute();
 }
+
+export function getContainerOperations(importContainerKey: string) {
+  return importApiRoot
+    .importContainers()
+    .withImportContainerKeyValue({ importContainerKey })
+    .importOperations()
+    .get()
+    .execute();
+}
+
+export function getContainerSummaries(importContainerKey: string) {
+  return importApiRoot
+    .importContainers()
+    .withImportContainerKeyValue({ importContainerKey })
+    .importSummaries()
+    .get()
+    .execute();
+}

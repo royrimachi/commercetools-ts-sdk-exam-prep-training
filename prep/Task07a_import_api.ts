@@ -1,6 +1,13 @@
 import { log } from "../utils/logger";
 import { IMPORTED_PRICES, PREP_CONTAINER_KEY } from "./drafts/import";
-import { createImportContainer, importPrices } from "./lib/importService";
+import {
+  createImportContainer,
+  getContainerOperations,
+  getContainerSummaries,
+  importPrices,
+} from "./lib/importService";
+
+const PREP_CONTAINER_NAME = "prep-container-pp";
 
 // TODO Step 1: Create an import container using Import API
 function step1() {
@@ -8,8 +15,8 @@ function step1() {
 }
 
 // TODO Step 2: Import new product price
-function step2() {
-  const importResponse = importPrices(PREP_CONTAINER_KEY, {
+async function step2() {
+  const importResponse = await importPrices(PREP_CONTAINER_KEY, {
     type: "price",
     resources: IMPORTED_PRICES,
   });
@@ -17,6 +24,12 @@ function step2() {
   log(importResponse);
 }
 
+// TODO Step 3: Verify
+function step3() {
+  getContainerOperations(PREP_CONTAINER_NAME).then(log).catch(log);
+  getContainerSummaries(PREP_CONTAINER_NAME).then(log).catch(log);
+}
+
 (async function () {
-  await step2();
+  await step3();
 })();
