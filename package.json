@@ -10,6 +10,7 @@
     "prep-1b": "ts-node prep/Task01b_create.ts",
     "prep-4a": "ts-node prep/Task04a_create_cart.ts",
     "prep-7a": "ts-node prep/Task07a_import_api.ts",
+    "prep-8a": "ts-node prep/Task08a_checkout.ts",
     "1a": "ts-node handson/Task01a_get.ts",
     "1b": "ts-node handson/Task01b_create.ts",
     "2a": "ts-node handson/Task02a_product_types.ts",

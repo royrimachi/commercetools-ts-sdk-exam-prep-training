@@ -16,7 +16,7 @@ export const getCustomerById = (
 export const getCustomerByKey = (
   key: string
 ): Promise<ClientResponse<Customer>> => {
-  throw new Error("Function not implemented");
+  return apiRoot.customers().withKey({ key }).get().execute();
 };
 
 export const createCustomer = (
