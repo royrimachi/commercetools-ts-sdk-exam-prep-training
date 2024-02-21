@@ -1,4 +1,9 @@
-import { ClientResponse, Cart } from "@commercetools/platform-sdk";
+import {
+  ClientResponse,
+  Cart,
+  OrderFromCartDraft,
+  Order,
+} from "@commercetools/platform-sdk";
 import { apiRoot } from "./client";
 import { createCartDraft } from "../drafts/cart";
 import { addLineItemsToCart, createCart, getCartById } from "./cart";
@@ -32,3 +37,26 @@ export const addLineItemsToCartByCartId = (
     addLineItemsToCart(cart.body.id, arrayOfSKUs, cart.body.version)
   );
 };
+
+export const createOrderFromCartId = (
+  cartId: string
+): Promise<ClientResponse<Order>> =>
+  createOrderFromCartDraft(cartId).then((orderFromCartDraft) =>
+    apiRoot
+      .orders()
+      .post({
+        body: orderFromCartDraft,
+      })
+      .execute()
+  );
+
+const createOrderFromCartDraft = (
+  cartId: string
+): Promise<OrderFromCartDraft> =>
+  getCartById(cartId).then((cart) => ({
+    cart: {
+      id: cartId,
+      typeId: "cart",
+    },
+    version: cart.body.version,
+  }));

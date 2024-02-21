@@ -2,6 +2,7 @@ import { log } from "../utils/logger";
 import {
   addLineItemsToCartByCartId,
   createCartByCustomerKey,
+  createOrderFromCartId,
 } from "./lib/order";
 
 const CUSTOMER_KEY = "rr-customer";
@@ -18,7 +19,10 @@ async function step2() {
 }
 
 // TODO Step 3: Place an order using the cart
+async function step3() {
+  return createOrderFromCartId(CART_ID).then(log).catch(log);
+}
 
 (async function () {
-  await step2();
+  await step3();
 })();
