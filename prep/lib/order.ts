@@ -1,7 +1,7 @@
 import { ClientResponse, Cart } from "@commercetools/platform-sdk";
 import { apiRoot } from "./client";
 import { createCartDraft } from "../drafts/cart";
-import { createCart } from "./cart";
+import { addLineItemsToCart, createCart, getCartById } from "./cart";
 import { getCustomerByKey } from "./customer";
 
 export const createCartByCustomerKey = (
@@ -24,12 +24,11 @@ export const createAnonymousCart = (): Promise<ClientResponse<Cart>> => {
   throw new Error("Function not implemented");
 };
 
-export const getCartById = (ID: string): Promise<ClientResponse<Cart>> => {
-  throw new Error("Function not implemented");
-};
-export const addLineItemsToCart = (
+export const addLineItemsToCartByCartId = (
   cartId: string,
   arrayOfSKUs: Array<string>
 ): Promise<ClientResponse<Cart>> => {
-  throw new Error("Function not implemented");
+  return getCartById(cartId).then((cart) =>
+    addLineItemsToCart(cart.body.id, arrayOfSKUs, cart.body.version)
+  );
 };
